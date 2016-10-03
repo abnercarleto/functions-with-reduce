@@ -15,3 +15,18 @@
     '()
     list)))
 
+(defn my-filter
+  "Returns a sequence of the items in coll for which (pred item) returns true."
+  [pred coll]
+  (reverse
+   (reduce
+    (fn [new-seq val]
+      (if (pred val)
+        (cons val new-seq)
+        new-seq))
+    '()
+    coll)))
+
+
+
+
