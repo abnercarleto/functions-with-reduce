@@ -8,24 +8,20 @@
 (defn my-map 
   "Returns a sequence consisting of the result of applying f to items of coll"
   [f list]
-  (reverse
-   (reduce
-    (fn [new-seq val]
-      (cons (f val) new-seq))
-    '()
-    list)))
+  (reverse (reduce (fn [new-seq val]
+                     (cons (f val) new-seq))
+                   '()
+                   list)))
 
 (defn my-filter
   "Returns a sequence of the items in coll for which (pred item) returns true."
   [pred coll]
-  (reverse
-   (reduce
-    (fn [new-seq val]
-      (if (pred val)
-        (cons val new-seq)
-        new-seq))
-    '()
-    coll)))
+  (reverse (reduce (fn [new-seq val]
+                     (if (pred val)
+                       (cons val new-seq)
+                       new-seq))
+                   '()
+                   coll)))
 
 
 
